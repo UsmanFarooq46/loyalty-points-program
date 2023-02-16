@@ -1,0 +1,106 @@
+<div class="login_page" [ngStyle]="{height:innerHeight+'px' }" style="overflow-x: hidden;">
+    <div class="logo_login">
+        <img style="
+     width: 115px;
+    height: 115px;
+    margin-bottom: 48px;
+  " src="assets/images/logo2.png" alt="">
+    </div>
+    <div class="login_wrape bg-white">
+        <div class="login_header">
+            <h5>Login</h5>
+        </div>
+        <div class="login_body">
+            <div class="wrongPass" *ngIf="isMatched==false">User Name or Passowrd Is Wrong</div>
+            <form class="login_form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form_group">
+                    <label for="userName">User Name</label>
+                    <input type="text" class="form_control" name="userName" formControlName="userName"
+                        placeholder="User Name"
+                        [ngClass]="{invalid_field:form.userName.invalid && form.userName.touched}" />
+                    <div *ngIf="form.userName.invalid && form.userName.touched" class="invalid-feedback d-block">
+                        <div *ngIf="form.userName.errors.required" class="invalid-feedback d-block">
+                            Required
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form_control" name="password" formControlName="password"
+                        placeholder="Password"
+                        [ngClass]="{invalid_field:form.password.invalid && form.password.touched}" />
+                    <div *ngIf="form.password.invalid && form.password.touched" class="invalid-feedback d-block">
+                        <div *ngIf="form.password.errors.required" class="invalid-feedback d-block">
+                            Required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3 d-flex justify-content-center">
+                    <div class="">
+                        <button type="submit" class="custom_btn Login_buttons">Login</button>
+                    </div>
+                    <div class="">
+                        <button type="button" class="custom_btn Login_buttons"
+                            (click)="openRegisterPopup()">Register</button>
+                    </div>
+                </div>
+                <div class="text-center ">
+                    <p class="mt-3 cursor_pointer text-danger font-weight-bold text-decoration-underline"
+                        (click)="OpenForgotPasswordPopup()">Forgot Passwrod</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="custom-card-body">
+                <ng-template #successModalContent let-modal class="modal fade" id="exampleModal-2"
+                    aria-labelledby="exampleModalLabel-2">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="header">
+                                <h4 class="text-center ">Forgot Password</h4>
+                            </div>
+                            <div class="body my-4">
+                                <app-forgot-password (changed)="modal.close()"></app-forgot-password>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="custom-card-body">
+                <ng-template #RegisterModalContent let-modal class="modal fade" id="exampleModal-2"
+                    aria-labelledby="exampleModalLabel-2">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="header">
+                                <h4 class="text-center ">Register</h4>
+                            </div>
+                            <div class="body my-4">
+                                <app-register (closePopup)="modal.close()"></app-register>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

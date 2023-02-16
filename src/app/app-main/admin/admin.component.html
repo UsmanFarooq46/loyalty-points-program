@@ -1,0 +1,58 @@
+<div class="container m-auto">
+    <h2>All Users</h2>
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">UserName</th>
+                <th scope="col">email</th>
+                <th scope="col">role</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of allUsers">
+                <th scope="row">{{item._id}}</th>
+                <td data-title="Amount">{{item.user}}</td>
+                <td data-title="Completed At">{{item.email}}</td>
+                <td data-title="status">{{item.role}}</td>
+                <td data-title="Action" class="action">
+                    <p (click)="opensendTransactionPopup(item)" class="m-0">Give Points</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="custom-card-body">
+                <ng-template #transactionModalContent let-modal class="modal fade" id="exampleModal-2"
+                    aria-labelledby="exampleModalLabel-2">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="header">
+                                <h2 class="text-center ">Register</h2>
+                            </div>
+                            <div class="body my-4">
+                                <input type="number" placeholder="Loyalty Points" class="form_control"
+                                    [(ngModel)]="transferAmount">
+
+                                <input type="text" placeholder="reason" class="form_control mt-3" [(ngModel)]="transferReason">
+                                <div class="text-right" style="margin-top: 12px;text-align: center;">
+                                    <button class="custom_btn" (click)="sendPoints()"
+                                        [disabled]="isLoading">{{isLoading?'Sending':'Send'}}</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

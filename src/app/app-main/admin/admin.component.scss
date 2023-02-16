@@ -1,0 +1,28 @@
+@media screen and (max-width: 600px) {
+  .mat-cell,
+  .mat-header-cell {
+    flex: 1 1 auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .surname {
+    display: none;
+  }
+}
+
+.mat_table {
+  width: 34px;
+}
+
+.action {
+  p {
+    border: 1px solid;
+    border-radius: 25px;
+    margin: 5px 2px !important;
+    background-color: green;
+    color: white;
+    padding: 3px 6px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <p>Please Provide me Username and linked Email with your account </p>
+    <form [formGroup]="regsiterForm" (ngSubmit)="submitRegisterForm()">
+        <div class="form_group">
+            <label for="userName">User Name</label>
+            <input type="text" class="form_control" name="user" formControlName="user" placeholder="User Name"
+                [ngClass]="{invalid_field:form.user.invalid && form.user.touched}" />
+            <div *ngIf="form.user.invalid && form.user.touched" class="invalid-feedback d-block">
+                <div *ngIf="form.user.errors.required" class="invalid-feedback d-block">
+                    Required
+                </div>
+            </div>
+        </div>
+
+        <div class="form_group">
+            <label for="email">Email</label>
+            <input type="text" class="form_control" name="email" formControlName="email" placeholder="Email"
+                [ngClass]="{invalid_field:form.email.invalid && form.email.touched}" />
+            <div *ngIf="form.email.invalid && form.email.touched" class="invalid-feedback d-block">
+                <div *ngIf="form.email.errors.required" class="invalid-feedback d-block">
+                    Required
+                </div>
+                <div *ngIf="form.email.errors.email" class="invalid-feedback d-block">
+                    Invalid Email
+                </div>
+            </div>
+        </div>
+
+        <div class="form_group">
+            <label for="password">Password</label>
+            <input type="text" class="form_control" name="password" formControlName="password"
+                placeholder="New Password" [ngClass]="{invalid_field:form.password.invalid && form.password.touched}" />
+            <div *ngIf="form.password.invalid && form.password.touched" class="invalid-feedback d-block">
+                <div *ngIf="form.password.errors.required" class="invalid-feedback d-block">
+                    Required
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3 text-center">
+            <button type="submit" class="custom_btn">Register</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,273 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+$red_color: #1c4ca5;
+$blue_color: rgb(3, 145, 20);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// materail Forms
+
+.mat-form {
+  width: 100%;
+}
+.mat-input-width {
+  width: 100%;
+}
+
+.form_group {
+  label {
+    // margin: 15px 0px 3px;
+    margin: 7px 3px 4px;
+    font-weight: 600;
+    font-size: 15px;
+    @media screen and (max-width: 550px) {
+      font-size: 13px;
+    }
+  }
+}
+
+.form_control {
+  display: block;
+  width: 100%;
+  background-color: white;
+  padding: 8px 8px;
+  /* font-size: 16px; */
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  // border-left: 4px solid #0d369e;
+  transition: all 0.2s linear;
+
+  &:focus {
+    border: 1px solid $blue_color;
+    outline: $blue_color;
+    border-left: 2px solid $blue_color;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 11px;
+  }
+}
+
+.invalid_field {
+  border: 1px solid red;
+  outline: red;
+  // border-left: 7px solid red;
+  &:focus {
+    border: 1px solid red;
+    outline: red;
+    border-left: 2px solid red;
+  }
+}
+
+.custom_btn {
+  background-color: $blue_color;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  font-size: 13px;
+  padding: 9px 14px;
+  border: 1px solid;
+  transition: all 0.5s;
+  &:hover {
+    background-color: white;
+    border: 1px solid $blue_color;
+    color: $blue_color;
+  }
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+// table Scss Starts here
+// Breakpoints
+$bp-maggie: 15em;
+$bp-lisa: 30em;
+$bp-bart: 48em;
+$bp-marge: 62em;
+$bp-homer: 75em;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+}
+a {
+  color: rgba(38, 137, 13, 1);
+  &:hover,
+  &:focus {
+    color: rgba(4, 106, 56, 1);
+  }
+}
+.container {
+  margin: 5% 3%;
+  @media (min-width: $bp-bart) {
+    margin: 2%;
+  }
+  @media (min-width: $bp-homer) {
+    margin: 2em auto;
+    max-width: $bp-homer;
+  }
+}
+.responsive-table {
+  width: 100%;
+  margin-bottom: 1.5em;
+  border-spacing: 0;
+  @media (min-width: $bp-bart) {
+    font-size: 0.9em;
+  }
+  @media (min-width: $bp-marge) {
+    font-size: 1em;
+  }
+  thead {
+    // Accessibly hide <thead> on narrow viewports
+    position: absolute;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    @media (min-width: $bp-bart) {
+      // Unhide <thead> on wide viewports
+      position: relative;
+      clip: auto;
+      height: auto;
+      width: auto;
+      overflow: auto;
+    }
+    th {
+      background-color: rgba(38, 137, 13, 1);
+      border: 1px solid rgba(134, 188, 37, 1);
+      font-weight: normal;
+      text-align: center;
+      color: white;
+      &:first-of-type {
+        text-align: left;
+      }
+    }
+  }
+  // Set these items to display: block for narrow viewports
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+  }
+  tr {
+    @media (min-width: $bp-bart) {
+      // Undo display: block
+      display: table-row;
+    }
+  }
+  th,
+  td {
+    padding: 0.5em;
+    vertical-align: middle;
+    @media (min-width: $bp-lisa) {
+      padding: 0.75em 0.5em;
+    }
+    @media (min-width: $bp-bart) {
+      // Undo display: block
+      display: table-cell;
+      padding: 0.5em;
+    }
+    @media (min-width: $bp-marge) {
+      padding: 0.75em 0.5em;
+    }
+    @media (min-width: $bp-homer) {
+      padding: 0.75em;
+    }
+  }
+  caption {
+    margin-bottom: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    @media (min-width: $bp-bart) {
+      font-size: 1.5em;
+    }
+  }
+  tfoot {
+    font-size: 0.8em;
+    font-style: italic;
+    @media (min-width: $bp-marge) {
+      font-size: 0.9em;
+    }
+  }
+  tbody {
+    @media (min-width: $bp-bart) {
+      // Undo display: block
+      display: table-row-group;
+    }
+    tr {
+      margin-bottom: 1em;
+      @media (min-width: $bp-bart) {
+        // Undo display: block
+        display: table-row;
+        border-width: 1px;
+      }
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      &:nth-of-type(even) {
+        @media (min-width: $bp-bart) {
+          background-color: rgba(0, 0, 0, 0.12);
+        }
+      }
+    }
+    th[scope="row"] {
+      background-color: rgba(38, 137, 13, 1);
+      color: white;
+      @media (min-width: $bp-lisa) {
+        border-left: 1px solid rgba(134, 188, 37, 1);
+        border-bottom: 1px solid rgba(134, 188, 37, 1);
+      }
+      @media (min-width: $bp-bart) {
+        background-color: transparent;
+        color: rgba(0, 0, 0.87);
+        text-align: left;
+      }
+    }
+    td {
+      text-align: right;
+      @media (min-width: $bp-bart) {
+        border-left: 1px solid rgba(134, 188, 37, 1);
+        border-bottom: 1px solid rgba(134, 188, 37, 1);
+        text-align: center;
+      }
+      &:last-of-type {
+        @media (min-width: $bp-bart) {
+          border-right: 1px solid rgba(134, 188, 37, 1);
+        }
+      }
+    }
+    td[data-type="currency"] {
+      text-align: right;
+    }
+    td[data-title]:before {
+      content: attr(data-title);
+      float: left;
+      font-size: 0.8em;
+      color: rgba(0, 0, 0, 0.54);
+      @media (min-width: $bp-lisa) {
+        font-size: 0.9em;
+      }
+      @media (min-width: $bp-bart) {
+        // Don’t show data-title labels
+        content: none;
+      }
+    }
+  }
+}
+
+// #table css ends here

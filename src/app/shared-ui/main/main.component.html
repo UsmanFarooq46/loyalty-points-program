@@ -1,0 +1,5 @@
+<app-header *ngIf="!isLoginPage"></app-header>
+<div [ngClass]="isLoginPage?'isLoginPage':'page'" [ngStyle]="{'height': isLoginPage ? '' : innerHeight+'px' }">
+    <router-outlet></router-outlet>
+</div>
+<app-footer *ngIf="!isLoginPage"></app-footer>

@@ -1,0 +1,40 @@
+<div class="container m-auto mt-3">
+    <div class="header">
+        <h2>User Transactions</h2>
+        <h2>Balance: {{memberData?.balance}}<span style="font-size: 14px;">{{memberData?.loyalty_currency}}</span></h2>
+    </div>
+
+    <table class="responsive-table">
+        <!-- <caption>User Transactions</caption> -->
+        <thead>
+            <tr>
+                <th scope="col">UserName</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Completed At</th>
+                <th scope="col">Currency</th>
+                <th scope="col">Type</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <!-- <tfoot>
+            <tr>
+                <td colspan="7">Sources: <a href="http://en.wikipedia.org/wiki/List_of_highest-grossing_animated_films"
+                        rel="external">Wikipedia</a> &amp; <a
+                        href="http://www.boxofficemojo.com/genres/chart/?id=animation.htm" rel="external">Box Office
+                        Mojo</a>. Data is current as of March 31, 2021.</td>
+            </tr>
+        </tfoot> -->
+        <tbody>
+            <tr *ngFor="let item of transactions">
+                <th scope="row">{{item.metadata.user}}</th>
+                <td data-title="Amount">{{item.amount}}</td>
+                <td data-title="Completed At">{{item.completed_at | date:'dd-MMM-yyyy'}}</td>
+                <td data-title="Currency" data-type="currency">{{item.loyalty_currency}}</td>
+                <td data-title="Type">{{item.type}}</td>
+                <td data-title="Reason">{{item.metadata?.reason}}</td>
+                <td data-title="status" data-type="Status">{{item.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
